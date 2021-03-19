@@ -1349,6 +1349,7 @@ getword(f, word, newlinep, filename)
 
 	c = getc(f);
     }
+	word[MAXWORDLEN-1] = 0;
 
     /*
      * End of the word: check for errors.
