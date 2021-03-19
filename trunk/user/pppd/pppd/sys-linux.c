@@ -2151,7 +2151,6 @@ int ppp_available(void)
 		}
 	    }
 
-	    close (s);
 	    if (!ok) {
 		slprintf(route_buffer, sizeof(route_buffer),
 			 "Sorry - PPP driver version %d.%d.%d is out of date\n",
