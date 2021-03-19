@@ -245,7 +245,8 @@ out:
 	if (old_pppol2tp_ip_updown_hook != NULL) {
 		(*old_pppol2tp_ip_updown_hook)(tunnel_id, session_id, up);
 	}
-
+	if (user_name != NULL)
+		free(user_name);
 	return;
 }
 
