@@ -1328,6 +1328,12 @@ int len;
 	u_char dig[SHA_DIGESTSIZE];
 	int fd;
 #endif /* USE_SRP */
+	
+	/*
+	 * Ignore requests if we're not open
+	 */
+	if (esp->es_client.ea_state <= eapClosed)
+		return;
 
 	/*
 	 * Note: we update es_client.ea_id *only if* a Response
@@ -1737,6 +1743,12 @@ int len;
 	u_char dig[SHA_DIGESTSIZE];
 #endif /* USE_SRP */
 
+	/*
+	 * Ignore requests if we're not open
+	 */
+	if (esp->es_client.ea_state <= eapClosed)
+		return;
+
 	if (esp->es_server.ea_id != id) {
 		dbglog("EAP: discarding Response %d; expected ID %d", id,
 		    esp->es_server.ea_id);
@@ -2048,6 +2060,11 @@ u_char *inp;
 int id;
 int len;
 {
+	/*
+	 * Ignore requests if we're not open
+	 */
+	if (esp->es_client.ea_state <= eapClosed)
+		return;
 	if (!eap_client_active(esp)) {
 		dbglog("EAP unexpected failure message in state %s (%d)",
 		    eap_state_name(esp->es_client.ea_state),
