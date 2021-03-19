@@ -2160,6 +2160,7 @@ int ppp_available(void)
 	    }
 	}
     }
+    close(s);
     return ok;
 }
 
@@ -2638,7 +2639,10 @@ get_pty(master_fdp, slave_fdp, slave_name, uid)
 		warn("Couldn't unlock pty slave %s: %m", pty_name);
 #endif
 	    if ((sfd = open(pty_name, O_RDWR | O_NOCTTY)) < 0)
+	    {
 		warn("Couldn't open pty slave %s: %m", pty_name);
+		close(mfd);
+	    }
 	}
     }
 #endif /* TIOCGPTN */
