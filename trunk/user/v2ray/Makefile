@@ -28,7 +28,6 @@ build_extract:
 
 build_v2ray:
 	( cd $(THISDIR)/$(v2ray_dir); \
-	GOROOT=/opt/hostedtoolcache/go/1.17.5/x64; \
 	sed -i \
 			'$(V2RAY_SED_ARGS)' \
 			distro/all/all.go ; \
