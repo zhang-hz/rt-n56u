@@ -33,10 +33,10 @@ endif
 go_build:
 	mkdir -p $(THISDIR)/go
 	( if [ ! -f $(THISDIR)/go/go$(go_version).linux-amd64.tar.gz ]; then \
-	curl --create-dirs -L https://gomirrors.org/dl/go/go$(go_version).linux-amd64.tar.gz -o $(THISDIR)/go/go$(go_version).linux-amd64.tar.gz ; \
+	curl --create-dirs -L https://go.dev/dl/go$(go_version).linux-amd64.tar.gz -o $(THISDIR)/go/go$(go_version).linux-amd64.tar.gz ; \
 	fi )
 	( if [ ! -d $(THISDIR)/go/go ]; then \
-	tar xfv $(THISDIR)/go/go$(go_version).linux-amd64.tar.gz -C go ; \
+	tar zxfv $(THISDIR)/go/go$(go_version).linux-amd64.tar.gz -C go ; \
 	fi )
 
 clean:
