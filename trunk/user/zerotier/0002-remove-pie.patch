@@ -22,7 +22,7 @@ index a547125d..13244741 100644
 	override CXXFLAGS+=-Wall -Wno-deprecated -std=c++11 -pthread $(INCLUDES) -DNDEBUG $(DEFS)
 -	LDFLAGS=-pie -Wl,-z,relro,-z,now
 +	LDFLAGS=-Wl,-z,relro,-z,now
-endif
+	endif
 -- 
 2.22.0
 
