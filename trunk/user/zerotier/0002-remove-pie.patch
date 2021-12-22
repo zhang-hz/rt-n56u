@@ -17,13 +17,12 @@ index a547125d..13244741 100644
 -	CFLAGS?=-O3 -fstack-protector -fPIE
 +	CFLAGS?=-O3 -fstack-protector
 	override CFLAGS+=-Wall -Wno-deprecated -pthread $(INCLUDES) -DNDEBUG $(DEFS)
-- CXXFLAGS?=-O3 -fstack-protector -fPIE
-+ CXXFLAGS?=-O3 -fstack-protector
+- 	CXXFLAGS?=-O3 -fstack-protector -fPIE
++ 	CXXFLAGS?=-O3 -fstack-protector
 	override CXXFLAGS+=-Wall -Wno-deprecated -std=c++11 -pthread $(INCLUDES) -DNDEBUG $(DEFS)
 -	LDFLAGS=-pie -Wl,-z,relro,-z,now
 +	LDFLAGS=-Wl,-z,relro,-z,now
 endif
-
 -- 
 2.22.0
 
