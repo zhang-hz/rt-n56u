@@ -13,21 +13,17 @@ diff --git a/make-linux.mk b/make-linux.mk
 index a547125d..13244741 100644
 --- a/make-linux.mk
 +++ b/make-linux.mk
-@@ -63,11 +63,11 @@ ifeq ($(ZT_DEBUG),1)
- 	# C25519 in particular is almost UNUSABLE in -O0 even on a 3ghz box!
- node/Salsa20.o node/SHA512.o node/C25519.o node/Poly1305.o: CXXFLAGS=-Wall -O2 -g -pthread $(INCLUDES) $(DEFS)
- else
+@@ -70,6 +70,6 @@ else
 -	CFLAGS?=-O3 -fstack-protector -fPIE
 +	CFLAGS?=-O3 -fstack-protector
- 	override CFLAGS+=-Wall -Wno-deprecated -pthread $(INCLUDES) -DNDEBUG $(DEFS)
--	CXXFLAGS?=-O3 -fstack-protector -fPIE
-+	CXXFLAGS?=-O3 -fstack-protector
- 	override CXXFLAGS+=-Wall -Wno-deprecated -std=c++11 -pthread $(INCLUDES) -DNDEBUG $(DEFS)
+	override CFLAGS+=-Wall -Wno-deprecated -pthread $(INCLUDES) -DNDEBUG $(DEFS)
+- CXXFLAGS?=-O3 -fstack-protector -fPIE
++ CXXFLAGS?=-O3 -fstack-protector
+	override CXXFLAGS+=-Wall -Wno-deprecated -std=c++11 -pthread $(INCLUDES) -DNDEBUG $(DEFS)
 -	LDFLAGS=-pie -Wl,-z,relro,-z,now
 +	LDFLAGS=-Wl,-z,relro,-z,now
- 	STRIP?=strip
- 	STRIP+=--strip-all
- endif
+endif
+
 -- 
 2.22.0
 
