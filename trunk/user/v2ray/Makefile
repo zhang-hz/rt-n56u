@@ -29,11 +29,12 @@ build_extract:
 build_v2ray:
 	export GOROOT=/opt/hostedtoolcache/go/1.17.5/x64
 	export GOTOOLDIR=/opt/hostedtoolcache/go/1.17.5/x64/pkg/tool/linux_amd64
+	echo $GOROOT
 	( cd $(THISDIR)/$(v2ray_dir); \
 	sed -i \
 			'$(V2RAY_SED_ARGS)' \
 			distro/all/all.go ; \
-	GOOS=linux GOARCH=mipsle go build -ldflags "-w -s" -o $(THISDIR)/bin/v2ray; \
+	GOOS=linux GOARCH=mipsle /opt/hostedtoolcache/go/1.17.5/x64/bin/go build -ldflags "-w -s" -o $(THISDIR)/bin/v2ray; \
 	)
 
 clean:
