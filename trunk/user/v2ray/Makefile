@@ -27,6 +27,8 @@ build_extract:
 	fi )
 
 build_v2ray:
+	export GOROOT=/opt/hostedtoolcache/go/1.17.5/x64
+	export GOTOOLDIR=/opt/hostedtoolcache/go/1.17.5/x64/pkg/tool/linux_amd64
 	( cd $(THISDIR)/$(v2ray_dir); \
 	sed -i \
 			'$(V2RAY_SED_ARGS)' \
