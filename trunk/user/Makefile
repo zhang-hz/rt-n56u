@@ -97,7 +97,10 @@ endif
 dir_y =
 dir_n =
 dir_  =
-
+ifeq ($(CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS),y)
+dir_$(CONFIG_FIRMWARE_INCLUDE_V2RAY)	        += v2ray
+dir_$(CONFIG_FIRMWARE_INCLUDE_TROJAN)	        += trojan
+endif
 dir_y						+= busybox
 dir_y						+= iptables
 dir_y						+= coremark
@@ -142,10 +145,7 @@ dir_$(CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS)                       +=microsocks
 dir_$(CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS)            +=ipt2socks
 dir_$(CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME)      	+= adguardhome
 dir_$(CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS)	        += dns2tcp
-ifeq ($(CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS),y)
-dir_$(CONFIG_FIRMWARE_INCLUDE_V2RAY)	        += v2ray
-dir_$(CONFIG_FIRMWARE_INCLUDE_TROJAN)	        += trojan
-endif
+
 dir_$(CONFIG_FIRMWARE_INCLUDE_SSOBFS)                      += simple-obfs
 dir_$(CONFIG_FIRMWARE_INCLUDE_ZEROTIER)	                       += zerotier
 dir_$(CONFIG_FIRMWARE_INCLUDE_WYY)						+= unblockmusic
