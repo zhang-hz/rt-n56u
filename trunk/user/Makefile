@@ -97,10 +97,6 @@ endif
 dir_y =
 dir_n =
 dir_  =
-ifeq ($(CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS),y)
-dir_$(CONFIG_FIRMWARE_INCLUDE_V2RAY)	        += v2ray
-dir_$(CONFIG_FIRMWARE_INCLUDE_TROJAN)	        += trojan
-endif
 dir_y						+= busybox
 dir_y						+= iptables
 dir_y						+= coremark
@@ -175,6 +171,10 @@ dir_$(CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT)         += scutclient
 dir_$(CONFIG_FIRMWARE_INCLUDE_VLMCSD)			+= vlmcsd
 dir_$(CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER)		+= dns-forwarder
 dir_$(SHADOWSOCKS_ENABLE)				+= shadowsocks
+ifeq ($(CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS),y)
+dir_$(CONFIG_FIRMWARE_INCLUDE_V2RAY)	        += v2ray
+dir_$(CONFIG_FIRMWARE_INCLUDE_TROJAN)	        += trojan
+endif
 dir_$(CONFIG_FIRMWARE_INCLUDE_LRZSZ)			+= lrzsz
 dir_$(CONFIG_FIRMWARE_INCLUDE_GDUT_DRCOM)		+= gdut-drcom
 dir_$(CONFIG_FIRMWARE_INCLUDE_DOGCOM)			+= dogcom
